@@ -52,5 +52,28 @@ public class LinkedList<E> {
         }
     }
 
+    public void removeFirst() {
+        if (head != null) {
+            head = crnt = head.next;
+        }
+    }
+
+    public void removeLast() {
+        if (head != null) {
+            if (head == null) {
+                removeFirst();
+                return;
+            }
+
+            Node<E> ptr = head;
+            Node<E> pre = head;
+            while (ptr.next != null) {
+                pre = ptr;
+                ptr = ptr.next;
+            }
+            pre.next = null;
+            crnt = pre;
+        }
+    }
 
 }
